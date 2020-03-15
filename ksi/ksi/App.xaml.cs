@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ksi.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace ksi
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new RegisterPage();
         }
 
         protected override void OnStart()
