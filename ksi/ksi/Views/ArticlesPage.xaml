@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ksi.Views.ArticlesPage"
              xmlns:viewModels="clr-namespace:ksi.ViewModels"
+             
              >
     <ContentPage.BindingContext>
-        <viewModels:ArticleViewModel/>
+        <viewModels:PickerRepViewModel/>
     </ContentPage.BindingContext>
     <StackLayout>
         <!--<Entry Text="{Binding AccessToken}"/>-->
@@ -13,6 +14,8 @@
                 Text="Get All Articles"/>
         <Button Text="Create Article"
                 Clicked="Button_Clicked"/>
+        <Button Text="Go to Test"
+                Clicked="Button_Clicked_1"/>
         <ListView ItemsSource="{Binding Articles}"
                   HasUnevenRows="True">
             <ListView.ItemTemplate>
@@ -31,5 +34,34 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Label Text="Question number 1"/>
+        <!--<Picker x:Name="pckStatus" HorizontalOptions="FillAndExpand" >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type viewModels:PickerRepViewModel}" >
+                    <viewModels:PickerRepViewModel Id="0" Reponse="All" />
+                    <viewModels:PickerRepViewModel Id="1" Reponse="New" />
+                    <viewModels:PickerRepViewModel Id="2" Reponse="Standby" />
+                    <viewModels:PickerRepViewModel Id="4" Reponse="In Progress" />
+                    <viewModels:PickerRepViewModel Id="8" Reponse="Submitted" />
+                    <viewModels:PickerRepViewModel Id="16" Reponse="Closed" />
+                </x:Array>
+            </Picker.ItemsSource>
+            <Picker.ItemDisplayBinding>
+                <Binding Path="Name" />
+            </Picker.ItemDisplayBinding>
+            <Picker.SelectedIndex>0</Picker.SelectedIndex>
+        </Picker>--><!--
+        <Picker Title="Select your reponse">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type viewModels:PickerRepViewModel}">
+                    <viewModels:PickerRepViewModel Id="0" Reponse="All" />
+                    <viewModels:PickerRepViewModel Id="1" Reponse="New" />
+                    <viewModels:PickerRepViewModel Id="2" Reponse="Standby" />
+                    <viewModels:PickerRepViewModel Id="4" Reponse="In Progress" />
+                    <viewModels:PickerRepViewModel Id="8" Reponse="Submitted" />
+                    <viewModels:PickerRepViewModel Id="16" Reponse="Closed" />
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>-->
     </StackLayout>
 </ContentPage>

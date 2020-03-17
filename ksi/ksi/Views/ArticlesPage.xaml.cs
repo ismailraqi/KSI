@@ -21,5 +21,11 @@ namespace ksi.Views
         {
             await Navigation.PushAsync(new AddArticlePage());
         }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+
+            await Navigation.PushModalAsync(new PickerQuesPage());
+        }
     }
 }

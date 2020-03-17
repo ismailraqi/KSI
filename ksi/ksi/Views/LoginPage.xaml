@@ -14,6 +14,7 @@
                 Text="Login"/>
         <Button Clicked="Button_Clicked"
                 Text="Go to all articles"/>
-
+        
     </StackLayout>
+    
 </ContentPage>
