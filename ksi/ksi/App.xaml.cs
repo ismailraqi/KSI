@@ -1,4 +1,5 @@
-﻿using ksi.Views;
+﻿using ksi.Helpers;
+using ksi.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,8 +12,27 @@ namespace ksi
         public App()
         {
             InitializeComponent();
+            SetMainPage();
+            //MainPage = new NavigationPage( new RegisterPage());
+        }
 
-            MainPage = new RegisterPage();
+        private void SetMainPage()
+        {
+            if (!string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                MainPage = new NavigationPage(new ArticlesPage());
+            }
+            else if (!string.IsNullOrEmpty(Settings.Username)
+                        && !string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                MainPage = new NavigationPage(new LoginPage());
+
+            }
+            else
+            {
+                MainPage = new NavigationPage(new RegisterPage());
+
+            }
         }
 
         protected override void OnStart()

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ksi.Android", "ksi\ksi.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ksi.iOS", "ksi\ksi.iOS\ksi.iOS.csproj", "{5F7A7B19-7BFF-409E-8701-8760AB2BEF44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ksi", "ksi\ksi\ksi.csproj", "{E9B9BB63-891A-4C7D-9B42-C049D2F8E339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ksi", "ksi\ksi\ksi.csproj", "{E9B9BB63-891A-4C7D-9B42-C049D2F8E339}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ksi.Views.AddArticlePage"
+             xmlns:vw="clr-namespace:ksi.ViewModels">
+    <ContentPage.BindingContext>
+        <vw:AddArticleViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout>
+            <Entry Text="{Binding Titre_article}"/>
+            <Entry Text="{Binding Contenu_article}"/>
+            <Entry Text="{Binding Description}"/>
+            <Entry Text="{Binding Image}"/>
+            <Entry Text="{Binding Url_video}"/>
+            <Entry Text="{Binding Date_creation}"/>
+            <Entry Text="{Binding UtilisateurID}"/>
+            <Button Command="{Binding AddCommand}"
+                Text="Add New Post"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

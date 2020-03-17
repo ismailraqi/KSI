@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ksi.Views.ArticlesPage"
+             xmlns:viewModels="clr-namespace:ksi.ViewModels"
+             >
+    <ContentPage.BindingContext>
+        <viewModels:ArticleViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <!--<Entry Text="{Binding AccessToken}"/>-->
+        <Button Command="{Binding GetArticles}"
+                Text="Get All Articles"/>
+        <Button Text="Create Article"
+                Clicked="Button_Clicked"/>
+        <ListView ItemsSource="{Binding Articles}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Titre_article}"/>
+                            <Label Text="{Binding Contenu_article}"/>
+                            <Label Text="{Binding Description}"/>
+                            <Label Text="{Binding Image}"/>
+                            <Label Text="{Binding Url_video}"/>
+                            <Label Text="{Binding Date_creation}"/>
+                            <Label Text="{Binding UtilisateurID}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

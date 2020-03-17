@@ -1,4 +1,5 @@
-﻿using ksi.Services;
+﻿using ksi.Helpers;
+using ksi.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ksi.ViewModels
     class RegisterViewModel
     {
         ApiService apiService = new ApiService();
-        public string Email { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
         public string Message { get; set; }
@@ -20,7 +21,9 @@ namespace ksi.ViewModels
             {
                 return new Command(async () =>
                 {
-                    var isSuccess = await apiService.RegisterAsync(Email, Password, ConfirmPassword);
+                    var isSuccess = await apiService.RegisterAsync(Username, Password, ConfirmPassword);
+                    Settings.Username = Username;
+                    Settings.Password = Password;
                     if (isSuccess)
                     {
                         Message = "Register Success";

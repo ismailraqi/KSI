@@ -10,16 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace ksi.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegisterPage : ContentPage
+	public partial class ArticlesPage : ContentPage
 	{
-		public RegisterPage ()
+		public ArticlesPage ()
 		{
 			InitializeComponent ();
 		}
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await Navigation.PushAsync(new AddArticlePage());
         }
     }
 }
