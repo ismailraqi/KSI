@@ -1,4 +1,5 @@
 ﻿using ksi.Models;
+using ksi.ViewModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -13,6 +14,7 @@ namespace ksi.Services
 {
     class ApiService
     {
+        private readonly string Uri = "http://192.168.1.104:45455";
         public async Task<bool> RegisterAsync(string email, string password, string confirmPassword)
         {
             var client = new HttpClient();
@@ -25,7 +27,7 @@ namespace ksi.Services
             var json = JsonConvert.SerializeObject(model);
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var response = await client.PostAsync("http://192.168.51.161:45455/api/Account/Register", content);
+            var response = await client.PostAsync($"{Uri}/api/Account/Register", content);
             return response.IsSuccessStatusCode;
         }
 
@@ -37,7 +39,7 @@ namespace ksi.Services
                 new KeyValuePair<string, string>("password",password),
                 new KeyValuePair<string, string>("grant_type","password")
             };
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://192.168.51.161:45455/Token");
+            var request = new HttpRequestMessage(HttpMethod.Post, $"{Uri}/Token");
             request.Content = new FormUrlEncodedContent(keyValues);
             var client = new HttpClient();
             var response=await client.SendAsync(request);
@@ -53,7 +55,7 @@ namespace ksi.Services
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",
                 accessToken);
-            var json = await client.GetStringAsync("http://192.168.51.161:45455/api/Articles");
+            var json = await client.GetStringAsync($"{Uri}/api/Articles");
             var articles = JsonConvert.DeserializeObject<List<AricleModel>>(json);
             return articles;
         }
@@ -66,7 +68,19 @@ namespace ksi.Services
             var json = JsonConvert.SerializeObject(article);
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var response = await client.PostAsync("http://192.168.51.161:45455/api/Articles",content);
+            var response = await client.PostAsync($"{Uri}/api/Articles", content);
+
+        }
+
+        public async Task PostRepAsync(responses reponses)
+        {
+            var client = new HttpClient();
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",
+            //    accessToken);
+            var json = JsonConvert.SerializeObject(reponses);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var response = await client.PostAsync($"{Uri}/api/Quests", content);
 
         }
     }

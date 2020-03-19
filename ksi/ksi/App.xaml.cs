@@ -20,7 +20,7 @@ namespace ksi
         {
             if (!string.IsNullOrEmpty(Settings.AccessToken))
             {
-                MainPage = new NavigationPage(new ArticlesPage());
+                MainPage = new NavigationPage(new MainPage());
             }
             else if (!string.IsNullOrEmpty(Settings.Username)
                         && !string.IsNullOrEmpty(Settings.AccessToken))

@@ -21,5 +21,11 @@ namespace ksi.Views
         {
            await Navigation.PushModalAsync(new ArticlesPage());
         }
+
+        private async void BackToRegister(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+
+        }
     }
 }

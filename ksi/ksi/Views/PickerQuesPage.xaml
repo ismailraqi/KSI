@@ -1,15 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ksi.Views.PickerQuesPage">
-    <ContentPage.Content>
+             x:Class="ksi.Views.PickerQuesPage"
+             BackgroundColor="Aqua">
+    <ContentPage.Content >
         <StackLayout>
-            <Label Text="Question number 1" Font="Micro"/>
-            <Picker Title="--Select a rep--"
+            <Label Text="Question number 1" Font="Micro" TextColor="Black"/>
+            <Picker Title="Select a rep"
+                    ItemsSource="{Binding rep}"
+                    ItemDisplayBinding="{Binding Rep}"
+                    SelectedItem="{Binding SelectedRep}"
+                    BackgroundColor="Green"/>
+            <Label Text="{Binding MyRep}" TextColor="Black"/>
+            <Picker>
+                <Picker.Items></Picker.Items>
+                
+                
+            </Picker>
+
+            <Label Text="Question number 2" Font="Micro" TextColor="Black"/>
+            <Picker Title="Select a rep"
                     ItemsSource="{Binding rep1}"
                     ItemDisplayBinding="{Binding Rep}"
-                    SelectedItem="{Binding SelectedRep}"/>
-            <Label Text="{Binding MyRep}" TextColor="Teal"/>
+                    SelectedItem="{Binding SelectedRep1}"
+                    BackgroundColor="Green"
+                    />
+            <Label Text="{Binding MyRep1}" TextColor="Black"/>
+            <Button Command="{Binding PostCommand}" Text="Submit" />
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

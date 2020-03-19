@@ -1,5 +1,6 @@
 ﻿using ksi.Helpers;
 using ksi.Services;
+using ksi.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ksi.ViewModels
                     Settings.Password = Password;
                     if (isSuccess)
                     {
-                        Message = "Register Success";
+                        Application.Current.MainPage = new NavigationPage(new LoginPage());
                     }
                     else
                     {

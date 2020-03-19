@@ -1,14 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ksi"
-             x:Class="ksi.MainPage">
+             xmlns:view="clr-namespace:ksi.Views"
+             x:Class="ksi.MainPage"
+       Title="Main Page">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
-</ContentPage>
+    <TabBar>
+        <Tab Title="Test"
+             Icon="signup.png">
+            <ShellContent>
+                <view:PickerQuesPage/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Register"
+             Icon="signup.png">
+            <ShellContent>
+                <view:RegisterPage/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Log in"
+             Icon="signup.png">
+            <ShellContent>
+                <view:LoginPage/>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+    
+</Shell>
